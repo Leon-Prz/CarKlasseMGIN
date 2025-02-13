@@ -6,36 +6,35 @@ namespace AutoNamespace
     {
         public static void Main(string[] args)
         {
-            // Auto erstellen
-            Car auto = new Car("Rot", 150, 200, 50);
+            // Lastkraftwagen testen
+            Console.WriteLine("=== Lastkraftwagen ===");
+            Lastkraftwagen lkw = new Lastkraftwagen();
+            Console.WriteLine(lkw);
+            lkw.Belade(5000);
+            lkw.KranBelade(1000);
+            lkw.KranEntlade(500);
+            lkw.Entlade(3000);
 
-            Console.WriteLine("\nTest 1: Beschleunigen bis zur Höchstgeschwindigkeit");
-            while (auto.Geschwindigkeit < auto.Hoechstgeschwindigkeit)
-            {
-                auto.Beschleunigen();
-                Console.WriteLine(auto);
-            }
-            
-            Console.WriteLine("\n----------------------------------------------------------------------------------------------------------------");
-            Console.WriteLine("\n Test 2: Bremsen bis zum Stillstand");
-            while (auto.Geschwindigkeit > 0)
-            {
-                auto.Bremsen();
-                Console.WriteLine(auto);
-            }
-            Console.WriteLine("\n----------------------------------------------------------------------------------------------------------------");
-            Console.WriteLine("\nTest 3: Beschleunigen bis der Tank leer ist");
-            do
-            {
-                auto.Beschleunigen();
-                Console.WriteLine(auto);
-            } 
-            while (auto.Kraftstoffstand > 0);
+            // Kleintransporter testen
+            Console.WriteLine("\n=== Kleintransporter ===");
+            Kleintransporter transporter = new Kleintransporter();
+            Console.WriteLine(transporter);
+            transporter.Belade(800);
+            transporter.Entlade(200);
 
-            auto.Fahren(); // Nochmals fahren um die "Tank ist leer"-Warnung zu sehen
+            // Autobus testen
+            Console.WriteLine("\n=== Autobus ===");
+            Autobus bus = new Autobus();
+            Console.WriteLine(bus);
+            bus.Öffne();
+            bus.Schließe();
 
-            auto.Tanken();
-            Console.WriteLine(auto);
+            // Personenkraftwagen testen
+            Console.WriteLine("\n=== Personenkraftwagen ===");
+            Personenkraftwagen pkw = new Personenkraftwagen();
+            Console.WriteLine(pkw);
+            pkw.Beschleunigen();
+
         }
     }
 }
